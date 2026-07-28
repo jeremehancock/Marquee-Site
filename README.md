@@ -2,7 +2,7 @@
 
 Landing page for [Marquee](https://github.com/jeremehancock/Marquee) — a self-hosted
 web app for managing your Plex media posters.
-
+  
 ## License
 
 [MIT](LICENSE)
