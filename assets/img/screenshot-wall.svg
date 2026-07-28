@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750"
+    role="img" aria-label="Placeholder screenshot of the Marquee Poster Wall">
+    <!--
+      PLACEHOLDER — replace with a real screenshot of the Poster Wall (/wall).
+      Swap the <img src> in index.html to the new file (e.g. screenshot-wall.png).
+    -->
+    <defs>
+        <linearGradient id="wallBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#14161a" />
+            <stop offset="100%" stop-color="#22242b" />
+        </linearGradient>
+        <linearGradient id="wallPoster" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4a3c22" />
+            <stop offset="100%" stop-color="#2a2c33" />
+        </linearGradient>
+        <linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#000" stop-opacity="0" />
+            <stop offset="100%" stop-color="#000" stop-opacity=".78" />
+        </linearGradient>
+    </defs>
+
+    <rect width="1200" height="750" fill="url(#wallBg)" />
+
+    <!-- soft blurred backdrop suggestion -->
+    <circle cx="300" cy="180" r="260" fill="#e5a00d" opacity=".05" />
+    <circle cx="920" cy="600" r="300" fill="#6d5ac0" opacity=".06" />
+
+    <!-- now playing banner -->
+    <g>
+        <rect x="440" y="52" width="320" height="42" rx="21" fill="#e5a00d" opacity=".95" />
+        <circle cx="474" cy="73" r="7" fill="#1c1e24" />
+        <rect x="492" y="66" width="216" height="14" rx="7" fill="#1c1e24" opacity=".85" />
+    </g>
+
+    <!-- featured poster -->
+    <g>
+        <rect x="437" y="126" width="326" height="484" rx="14" fill="url(#wallPoster)" stroke="#3a3e46"
+            stroke-width="2" />
+        <rect x="437" y="410" width="326" height="200" rx="0" fill="url(#scrim)" />
+        <rect x="469" y="486" width="230" height="18" rx="9" fill="#e9e6df" opacity=".9" />
+        <rect x="469" y="518" width="150" height="12" rx="6" fill="#e9e6df" opacity=".55" />
+        <rect x="469" y="546" width="104" height="10" rx="5" fill="#9aa0aa" opacity=".55" />
+    </g>
+
+    <!-- flanking posters (dimmed, part of the rotation) -->
+    <g opacity=".3">
+        <rect x="120" y="196" width="260" height="386" rx="12" fill="#2f3138" stroke="#3a3e46" />
+        <rect x="820" y="196" width="260" height="386" rx="12" fill="#2f3138" stroke="#3a3e46" />
+    </g>
+
+    <!-- streaming user chip -->
+    <g>
+        <rect x="437" y="640" width="326" height="46" rx="23" fill="#282a2d" opacity=".9" stroke="#34373d" />
+        <circle cx="468" cy="663" r="14" fill="#33363d" />
+        <circle cx="468" cy="659" r="5" fill="#9aa0aa" />
+        <path d="M459 671a9 9 0 0 1 18 0Z" fill="#9aa0aa" />
+        <rect x="494" y="656" width="112" height="12" rx="6" fill="#e9e6df" opacity=".7" />
+        <rect x="618" y="656" width="72" height="12" rx="6" fill="#9aa0aa" opacity=".5" />
+    </g>
+
+    <!-- rotation dots -->
+    <g>
+        <circle cx="576" cy="712" r="5" fill="#e5a00d" />
+        <circle cx="596" cy="712" r="5" fill="#9aa0aa" opacity=".4" />
+        <circle cx="616" cy="712" r="5" fill="#9aa0aa" opacity=".4" />
+    </g>
+</svg>

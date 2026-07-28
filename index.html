@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marquee — Self-hosted poster management for Plex</title>
+    <meta name="description"
+        content="Marquee is a self-hosted web app for managing your Plex media posters. Import every poster from Plex, refine it in place, and send it back — locked so Plex keeps your choice.">
+    <meta name="theme-color" content="#1c1e24">
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://marquee.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Marquee — Self-hosted poster management for Plex">
+    <meta property="og:description"
+        content="Import every poster from Plex, refine each one in place, and send it back locked. Plus a full-screen Poster Wall that becomes a live now-playing board.">
+    <meta property="og:image" content="assets/img/og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://github.com">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Scroll-reveal only hides content when JS is there to bring it back. -->
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="siteHeader">
+        <div class="wrap site-header__inner">
+            <a class="brand" href="#top" aria-label="Marquee home">
+                <img class="brand__mark" src="assets/img/logo.svg" alt="" width="36" height="36">
+                <span class="brand__name">Marquee</span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Main">
+                <a class="nav__link" href="#features">Features</a>
+                <a class="nav__link" href="#wall">Poster Wall</a>
+                <a class="nav__link" href="#how">How it works</a>
+                <a class="nav__link" href="#faq">FAQ</a>
+                <a class="nav__link" href="#support">Support</a>
+                <a class="btn btn--accent btn--small nav__cta" href="https://github.com/jeremehancock/Marquee"
+                    target="_blank" rel="noopener">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
+                    </svg>
+                    GitHub
+                </a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav"
+                aria-label="Open menu">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- ── Hero ─────────────────────────────────────────────── -->
+        <section class="hero" id="top">
+            <div class="hero__glow" aria-hidden="true"></div>
+            <div class="wrap hero__inner">
+                <div class="hero__copy reveal">
+                    <p class="eyebrow">
+                        <span class="dot" aria-hidden="true"></span>
+                        Self-hosted · Free &amp; open source
+                    </p>
+                    <h1 class="hero__title">
+                        Your Plex library,<br>
+                        <span class="grad">with the posters you want.</span>
+                    </h1>
+                    <p class="hero__sub">
+                        Marquee is a self-hosted web app for managing the posters in your Plex library — Movies, TV
+                        Shows, Seasons, and Collections. Import them all, refine each one in place, and send your
+                        choice back to Plex locked so it sticks.
+                    </p>
+                    <div class="hero__actions">
+                        <a class="btn btn--accent btn--lg" href="https://github.com/jeremehancock/Marquee"
+                            target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
+                            </svg>
+                            Get Marquee on GitHub
+                        </a>
+                        <a class="btn btn--ghost btn--lg" href="#features">See what it does</a>
+                    </div>
+                    <p class="hero__note">
+                        <strong>Early alpha.</strong> Marquee is under active development — testing and feedback are
+                        very welcome, but treat it as experimental for now.
+                    </p>
+                </div>
+
+                <div class="hero__media reveal reveal--delay">
+                    <div class="shot shot--browser">
+                        <div class="shot__chrome" aria-hidden="true">
+                            <span class="shot__dot"></span><span class="shot__dot"></span><span
+                                class="shot__dot"></span>
+                            <span class="shot__url">marquee.local</span>
+                        </div>
+                        <img src="assets/img/screenshot-gallery.png"
+                            alt="The Marquee gallery showing a grid of movie and TV posters" width="1200" height="800"
+                            loading="eager">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Features ─────────────────────────────────────────── -->
+        <section class="section" id="features">
+            <div class="wrap">
+                <div class="section__head reveal">
+                    <p class="eyebrow eyebrow--plain">Features</p>
+                    <h2 class="section__title">Everything you need to curate your artwork</h2>
+                    <p class="section__sub">
+                        Marquee treats Plex as the source of truth and gives you a fast, focused place to fix the
+                        posters that never looked right.
+                    </p>
+                </div>
+
+                <div class="grid grid--features">
+                    <article class="card reveal">
+                        <span class="card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
+                                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Import from Plex</h3>
+                        <p class="card__text">
+                            Pull the current poster for every Movie, TV Show, Season, and Collection. A step-by-step
+                            picker asks what you want first, then shows only the libraries that can provide it.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <span class="card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 20h9" />
+                                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Edit posters in place</h3>
+                        <p class="card__text">
+                            Upload your own art, paste an image URL, or pick a replacement from
+                            <strong>Find Posters</strong>, the built-in online poster search.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <span class="card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="4" y="10" width="16" height="11" rx="2" />
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                                <path d="M12 14.5v2.5" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Locked in Plex</h3>
+                        <p class="card__text">
+                            Changing a poster uploads it to Plex and locks the artwork, so an agent refresh won't quietly
+                            replace the image you picked.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <span class="card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M12 7v5l3.5 2" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Auto-import on a schedule</h3>
+                        <p class="card__text">
+                            Re-import every 1, 3, 6, 12, or 24 hours. Marquee skips posters that haven't changed in Plex,
+                            so recurring imports stay cheap and easy on your server.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <span class="card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="4" width="7" height="7" rx="1.5" />
+                                <rect x="14" y="4" width="7" height="7" rx="1.5" />
+                                <rect x="3" y="13" width="7" height="7" rx="1.5" />
+                                <rect x="14" y="13" width="7" height="7" rx="1.5" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Browse and sort your way</h3>
+                        <p class="card__text">
+                            Filter by type or see the whole library in one grid, each poster tagged. Sort alphabetically
+                            or by date added to Plex, newest first.
+                        </p>
+                    </article>
+
+                    <article class="card reveal">
+                        <span class="card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="6" y="2.5" width="12" height="19" rx="2.5" />
+                                <path d="M11 18.5h2" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Mobile-first, installable</h3>
+                        <p class="card__text">
+                            On a phone the gallery stays front and center: navigation and poster actions live in
+                            full-size trays. Install it as a PWA on your phone or desktop.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Poster Wall ──────────────────────────────────────── -->
+        <section class="section section--alt" id="wall">
+            <div class="wrap split">
+                <div class="split__copy reveal">
+                    <p class="eyebrow eyebrow--plain">Poster Wall</p>
+                    <h2 class="section__title">Turn a spare screen into a live now-playing board</h2>
+                    <p class="section__sub">
+                        The Poster Wall is a full-screen, slideshow view of your library that switches to whatever your
+                        household is actually watching.
+                    </p>
+                    <ul class="ticks">
+                        <li>Cycles through your posters in a clean, full-bleed slideshow</li>
+                        <li>Shows the poster of whatever is streaming, with a <em>Currently Streaming</em> banner,
+                            media details, and the Plex user</li>
+                        <li>Rotates through multiple active streams automatically</li>
+                        <li>No sign-in required — point a spare monitor straight at it</li>
+                    </ul>
+                </div>
+                <div class="split__media reveal reveal--delay">
+                    <div class="shot shot--tv">
+                        <img src="assets/img/screenshot-wall.png"
+                            alt="The Poster Wall in full screen showing a now-playing poster and streaming details"
+                            width="1200" height="750" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── How it works ─────────────────────────────────────── -->
+        <section class="section" id="how">
+            <div class="wrap">
+                <div class="section__head reveal">
+                    <p class="eyebrow eyebrow--plain">How it works</p>
+                    <h2 class="section__title">Three steps to a better looking library</h2>
+                </div>
+
+                <ol class="steps">
+                    <li class="step reveal">
+                        <span class="step__num">1</span>
+                        <h3 class="step__title">Connect and import</h3>
+                        <p class="step__text">
+                            Point Marquee at your Plex server, choose what to import, and pick the libraries. Marquee
+                            pulls the current poster for each item and remembers what it belongs to.
+                        </p>
+                    </li>
+                    <li class="step reveal">
+                        <span class="step__num">2</span>
+                        <h3 class="step__title">Refine the ones that bug you</h3>
+                        <p class="step__text">
+                            Hover a poster — or tap it on mobile — to open its actions. Upload a file, paste a URL, or
+                            search Find Posters, then apply it.
+                        </p>
+                    </li>
+                    <li class="step reveal">
+                        <span class="step__num">3</span>
+                        <h3 class="step__title">Send it to Plex and keep it</h3>
+                        <p class="step__text">
+                            Marquee uploads the poster to Plex and locks the artwork. Fetch from Plex any time to pull
+                            an item's current art back, and use Orphans to tidy up what's gone.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ── Install CTA ──────────────────────────────────────── -->
+        <section class="section section--alt" id="get-started">
+            <div class="wrap">
+                <div class="cta reveal">
+                    <div class="cta__copy">
+                        <h2 class="cta__title">Run it on your own server</h2>
+                        <p class="cta__text">
+                            Marquee is a single self-hosted container that talks to your Plex server — no accounts, no
+                            cloud, nothing leaves your network. Full setup instructions, configuration options, and
+                            release notes live on GitHub.
+                        </p>
+                        <div class="cta__actions">
+                            <a class="btn btn--accent btn--lg" href="https://github.com/jeremehancock/Marquee"
+                                target="_blank" rel="noopener">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
+                                </svg>
+                                Installation guide
+                            </a>
+                            <a class="btn btn--ghost btn--lg" href="https://github.com/jeremehancock/Marquee/issues"
+                                target="_blank" rel="noopener">Report an issue</a>
+                        </div>
+                    </div>
+                    <ul class="cta__list">
+                        <li>Runs in Docker with a single compose file</li>
+                        <li>Your posters live in one folder you control</li>
+                        <li>Works behind your existing reverse proxy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── FAQ ──────────────────────────────────────────────── -->
+        <section class="section" id="faq">
+            <div class="wrap wrap--narrow">
+                <div class="section__head reveal">
+                    <p class="eyebrow eyebrow--plain">FAQ</p>
+                    <h2 class="section__title">Questions, answered</h2>
+                </div>
+
+                <div class="faq">
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">Does Marquee change my Plex library?</summary>
+                        <div class="faq__a">
+                            <p>Yes. When you change a poster — or use <strong>Send to Plex</strong> — Marquee uploads
+                                that image to the item in Plex and locks the artwork so Plex keeps it.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">Is Marquee a backup of my Plex posters?</summary>
+                        <div class="faq__a">
+                            <p>No. Marquee treats Plex as the source of truth: importing pulls the current poster from
+                                Plex and overwrites what Marquee had for that item. Keep your own backups of anything
+                                you can't recreate.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">What is orphan detection?</summary>
+                        <div class="faq__a">
+                            <p>It finds posters in Marquee that are no longer linked to any media in Plex — usually
+                                because you removed that content.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">Where do "Find Posters" results come from?</summary>
+                        <div class="faq__a">
+                            <p>From online poster sources —
+                                <a href="https://www.thetvdb.com/" target="_blank" rel="noopener">TVDB</a>,
+                                <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">TMDB</a>,
+                                <a href="https://fanart.tv/" target="_blank" rel="noopener">Fanart.tv</a>, and
+                                <a href="https://mediux.pro/" target="_blank" rel="noopener">Mediux</a>.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">Does it work on mobile?</summary>
+                        <div class="faq__a">
+                            <p>Yes. Marquee is responsive and installable as a PWA. On a phone, secondary navigation
+                                lives behind a menu and tapping a poster opens a full-size action sheet, so the gallery
+                                stays front and center.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">What does it cost?</summary>
+                        <div class="faq__a">
+                            <p>Nothing. Marquee is free and open source under the MIT license. There are no accounts, no
+                                subscriptions, and no telemetry.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item reveal">
+                        <summary class="faq__q">How do I install it?</summary>
+                        <div class="faq__a">
+                            <p>Marquee runs as a Docker container. The
+                                <a href="https://github.com/jeremehancock/Marquee" target="_blank"
+                                    rel="noopener">GitHub repository</a> has the compose
+                                file, every configuration option, and instructions for finding your Plex token.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Support ──────────────────────────────────────────── -->
+        <section class="section section--alt" id="support">
+            <div class="wrap wrap--narrow">
+                <div class="support reveal">
+                    <span class="support__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 20.5s-7.5-4.4-7.5-9.4a4.1 4.1 0 0 1 7.5-2.3 4.1 4.1 0 0 1 7.5 2.3c0 5-7.5 9.4-7.5 9.4Z" />
+                        </svg>
+                    </span>
+                    <h2 class="support__title">Support development</h2>
+                    <p class="support__text">
+                        Marquee is free and always will be. If it earned a spot in your setup, you can throw a few
+                        dollars at ongoing development — or, let's be honest, at another hard drive for my Plex server
+                        that I absolutely need and can definitely justify.
+                    </p>
+                    <a class="btn btn--accent btn--lg" href="https://www.buymeacoffee.com/jeremehancock"
+                        target="_blank" rel="noopener">
+                        <svg class="icon icon--stroke" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z" />
+                            <path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16" />
+                            <path d="M8 3.5v2M12 3.5v2" />
+                        </svg>
+                        Hard drive fund
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap site-footer__inner">
+            <div class="site-footer__brand">
+                <a class="brand" href="#top" aria-label="Marquee home">
+                    <img class="brand__mark" src="assets/img/logo.svg" alt="" width="32" height="32">
+                    <span class="brand__name">Marquee</span>
+                </a>
+                <p class="site-footer__tag">Self-hosted poster management for Plex.</p>
+            </div>
+
+            <nav class="site-footer__links" aria-label="Footer">
+                <a href="#features">Features</a>
+                <a href="#wall">Poster Wall</a>
+                <a href="#faq">FAQ</a>
+                <a href="#support">Support</a>
+                <a href="https://github.com/jeremehancock/Marquee" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/jeremehancock/Marquee/issues" target="_blank" rel="noopener">Issues</a>
+                <a href="https://github.com/jeremehancock/Marquee/blob/main/LICENSE" target="_blank"
+                    rel="noopener">License</a>
+            </nav>
+        </div>
+        <div class="wrap site-footer__legal">
+            <p>&copy; <span id="year">2026</span> Jereme Hancock. Released under the MIT license.</p>
+            <p>Not affiliated with or endorsed by Plex, Inc.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

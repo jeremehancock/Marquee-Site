@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630"
+    role="img" aria-label="Marquee — self-hosted poster management for Plex">
+    <!-- PLACEHOLDER social share image. Replace with a 1200x630 PNG/JPG if you want
+         broader link-preview support (some platforms do not render SVG previews). -->
+    <defs>
+        <linearGradient id="ogGold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#e5a00d" />
+            <stop offset="60%" stop-color="#f5c65a" />
+            <stop offset="100%" stop-color="#ffe3a8" />
+        </linearGradient>
+    </defs>
+
+    <rect width="1200" height="630" fill="#1c1e24" />
+    <circle cx="200" cy="140" r="300" fill="#e5a00d" opacity=".10" />
+    <circle cx="1030" cy="540" r="320" fill="#f5c65a" opacity=".10" />
+
+    <!-- logo mark -->
+    <g transform="translate(88 92)">
+        <rect width="96" height="96" rx="18" fill="#282a2d" />
+        <rect x="18" y="24" width="26" height="48" rx="5" fill="#b9800c" transform="rotate(-10 31 48)" />
+        <rect x="52" y="24" width="26" height="48" rx="5" fill="#b9800c" transform="rotate(10 65 48)" />
+        <rect x="31" y="22" width="34" height="52" rx="5" fill="#e5a00d" />
+        <path d="M41 37 L41 59 L59 48 Z" fill="#1c1e24" />
+    </g>
+
+    <text x="88" y="290" font-family="system-ui, sans-serif" font-size="76" font-weight="700"
+        fill="#e9e6df" letter-spacing="-2">Marquee</text>
+    <text x="88" y="368" font-family="system-ui, sans-serif" font-size="40" font-weight="600"
+        fill="url(#ogGold)">Your Plex library, with the posters you want.</text>
+    <text x="88" y="428" font-family="system-ui, sans-serif" font-size="26" fill="#9aa0aa">
+        Self-hosted poster management for Movies, TV Shows, Seasons &amp; Collections.
+    </text>
+
+    <!-- poster row -->
+    <g opacity=".9">
+        <rect x="88" y="474" width="96" height="86" rx="8" fill="#33363d" stroke="#3a3e46" />
+        <rect x="196" y="474" width="96" height="86" rx="8" fill="#3a3226" stroke="#3a3e46" />
+        <rect x="304" y="474" width="96" height="86" rx="8" fill="#33363d" stroke="#3a3e46" />
+        <rect x="412" y="474" width="96" height="86" rx="8" fill="#3a3226" stroke="#3a3e46" />
+    </g>
+
+    <text x="1112" y="562" text-anchor="end" font-family="system-ui, sans-serif" font-size="24"
+        fill="#9aa0aa">github.com/jeremehancock/Marquee</text>
+</svg>
