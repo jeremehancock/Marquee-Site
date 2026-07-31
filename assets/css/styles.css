@@ -791,6 +791,58 @@ p {
     color: var(--accent);
 }
 
+/* Poster provider credit, sitting between the footer nav and the legal line. */
+.attribution {
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.attribution__label {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 13.5px;
+}
+
+.attribution__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+.attribution__logos a {
+    display: inline-flex;
+    align-items: center;
+    opacity: .75;
+    transition: opacity .2s;
+}
+
+.attribution__logos a:hover {
+    opacity: 1;
+}
+
+/* The three marks have very different aspect ratios (TMDB is a wide wordmark,
+   TheTVDB is nearly square, fanart.tv sits between), so each gets the height
+   that makes them read as one row. Width follows from the intrinsic ratio. */
+.attribution__logo {
+    width: auto;
+}
+
+.attribution__logo--tmdb {
+    height: 15px;
+}
+
+.attribution__logo--tvdb {
+    height: 32px;
+}
+
+.attribution__logo--fanart {
+    height: 28px;
+}
+
 .site-footer__legal {
     display: flex;
     flex-wrap: wrap;
@@ -801,6 +853,12 @@ p {
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 13.5px;
+}
+
+/* The attribution row already draws a rule above itself, so the legal line only
+   needs breathing room after it rather than a second full section gap. */
+.attribution+.site-footer__legal {
+    margin-top: 24px;
 }
 
 /* ── Reveal on scroll ───────────────────────────────────────── */

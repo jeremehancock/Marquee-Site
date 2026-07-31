@@ -440,6 +440,30 @@
                     rel="noopener">License</a>
             </nav>
         </div>
+
+        <!-- Credit for the providers whose artwork reaches the user through Marquee.
+             Mediux is deliberately absent: the poster source returns no artwork from it.
+             Each logo carries its intrinsic width/height so the row reserves its space
+             before the images decode; the displayed size comes from the per-provider
+             classes, which normalise three very different aspect ratios into one row. -->
+        <div class="wrap attribution">
+            <p class="attribution__label">Posters provided by:</p>
+            <div class="attribution__logos">
+                <a href="https://www.themoviedb.org/" target="_blank" rel="noopener" title="TMDB">
+                    <img class="attribution__logo attribution__logo--tmdb"
+                        src="assets/img/providers/tmdb.svg" alt="TMDB" width="273" height="36">
+                </a>
+                <a href="https://www.thetvdb.com/" target="_blank" rel="noopener" title="TheTVDB">
+                    <img class="attribution__logo attribution__logo--tvdb"
+                        src="assets/img/providers/tvdb.png" alt="TheTVDB" width="400" height="216">
+                </a>
+                <a href="https://fanart.tv/" target="_blank" rel="noopener" title="fanart.tv">
+                    <img class="attribution__logo attribution__logo--fanart"
+                        src="assets/img/providers/fanart.png" alt="fanart.tv" width="303" height="61">
+                </a>
+            </div>
+        </div>
+
         <div class="wrap site-footer__legal">
             <p>&copy; <span id="year">2026</span> <a href="https://jeremehancock.com" target="_blank" 
                 rel="noopener">Jereme Hancock</a>. Released under the MIT license.</p>
