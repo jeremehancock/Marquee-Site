@@ -824,9 +824,9 @@ p {
     opacity: 1;
 }
 
-/* The three marks have very different aspect ratios (TMDB is a wide wordmark,
-   TheTVDB is nearly square, fanart.tv sits between), so each gets the height
-   that makes them read as one row. Width follows from the intrinsic ratio. */
+/* The four marks have very different aspect ratios (TMDB is a wide wordmark,
+   TheTVDB is nearly square, fanart.tv and TVmaze sit between), so each gets the
+   height that makes them read as one row. Width follows from the intrinsic ratio. */
 .attribution__logo {
     width: auto;
 }
@@ -841,6 +841,10 @@ p {
 
 .attribution__logo--fanart {
     height: 28px;
+}
+
+.attribution__logo--tvmaze {
+    height: 24px;
 }
 
 .site-footer__legal {
