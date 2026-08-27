@@ -367,23 +367,6 @@ p {
     margin-top: 30px;
 }
 
-.hero__note {
-    margin-top: 26px;
-    padding: 12px 16px;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--radius-sm);
-    background: rgba(229, 160, 13, .06);
-    color: var(--muted);
-    font-size: 14.5px;
-    line-height: 1.55;
-    max-width: 60ch;
-}
-
-.hero__note strong {
-    color: var(--ink);
-}
-
 /* ── Screenshots ────────────────────────────────────────────── */
 .shot {
     border: 1px solid var(--border);
@@ -442,6 +425,11 @@ p {
 .section__head {
     max-width: 680px;
     margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.section__head--center {
+    margin-inline: auto;
+    text-align: center;
 }
 
 .section__title {
@@ -649,6 +637,112 @@ p {
     background: rgba(0, 0, 0, .18);
     color: var(--muted);
     font-size: 15px;
+}
+
+/* ── Sibling product (Glimpse) ──────────────────────────────── */
+/* Deliberately wears Glimpse's own brighter yellow rather than Marquee's Plex
+   gold, so it reads as a pointer to a different product instead of another
+   Marquee feature. */
+/* Declared on the section, not the card: the eyebrow above the card reads it
+   too, and a variable scoped to the card is invisible from outside it. */
+.section--glimpse {
+    --glimpse: #feb822;
+}
+
+/* The card is narrower than the full wrap on purpose. At full width the text
+   column is wider than a comfortable line length, which leaves the paragraph
+   stopping short of the right padding while sitting close to the logo — it
+   reads as the copy being crowded against the mark. Narrowing the card lets
+   the paragraph fill its column instead, so both sides end where the padding
+   does. */
+.sibling {
+    max-width: 940px;
+    margin-inline: auto;
+    display: grid;
+    /* The mark column is sized so the logo reads as a product identity rather
+       than a decorative icon — it is the thing that says "this is a different
+       app" before the copy does. */
+    grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 76px);
+    align-items: center;
+    padding: clamp(30px, 4vw, 48px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background:
+        radial-gradient(460px 300px at 12% 8%, rgba(254, 184, 34, .13), transparent 70%),
+        var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.sibling__eyebrow {
+    color: var(--glimpse);
+}
+
+/* No max-width: the column is already sized to a readable measure, and capping
+   the paragraph again is what leaves dead space on the right. */
+.sibling__text {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.sibling__text + .sibling__text {
+    margin-top: 14px;
+}
+
+.sibling__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.btn--glimpse {
+    background: var(--glimpse);
+    border-color: var(--glimpse);
+    color: #17181a;
+    box-shadow: 0 8px 22px rgba(254, 184, 34, .18);
+}
+
+.btn--glimpse:hover {
+    background: #ffc84a;
+    border-color: #ffc84a;
+    box-shadow: 0 12px 28px rgba(254, 184, 34, .28);
+}
+
+.sibling__note {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 13.5px;
+    letter-spacing: .01em;
+}
+
+.sibling__mark {
+    text-align: center;
+}
+
+/* Fills its column rather than sitting as a small icon in a large box. The
+   source icon is a square with no rounded corners of its own, so the radius is
+   given as a ratio — the same 12/64 the Marquee mark uses — and stays in
+   proportion as the width changes. */
+.sibling__mark img {
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 18.75%;
+    box-shadow: var(--shadow-lg);
+}
+
+.sibling__name {
+    margin-top: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+.sibling__tag {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 14.5px;
 }
 
 /* ── Support ────────────────────────────────────────────────── */
@@ -893,6 +987,16 @@ p {
     .split__media {
         order: -1;
     }
+
+    /* Stacked, the logo must stop filling the full page width — at 300px it
+       already reads as the product's identity without dominating the card. */
+    .sibling {
+        grid-template-columns: 1fr;
+    }
+
+    .sibling__mark img {
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -941,7 +1045,8 @@ p {
     }
 
     .hero__actions .btn,
-    .cta__actions .btn {
+    .cta__actions .btn,
+    .sibling__actions .btn {
         width: 100%;
     }
 
